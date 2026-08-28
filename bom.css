@@ -65,3 +65,106 @@ body {
     color: var(--secondary);
     margin-bottom: 0.5rem;
 }
+
+.container {
+    max-width: 880x;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.cafe {
+    font-size: 1.25rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--bg);
+    padding-bottom: 0.5rem;
+}
+
+.serido {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minax(220px, 1fr));
+    gap: 1rem;
+}
+
+.coracoes {
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.coracoes:hover {
+    border-color: var(--primary);
+}
+
+.coracoes input {
+    margin-right: 0.5rem;
+    accent-color: var(--primary);
+}
+
+.tres {
+    display: flex;
+    flex-direction: column;
+}
+
+.leite {
+    font-weight: 600;
+}
+
+.amargo {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.quentinho {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    border-top: 2px solid var(--border);
+    padding: 1rem;
+    box-shadow: o -4px 10px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 100%;
+    z-index: 100;
+}
+
+.prontinho {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--secondary);
+}
+
+.sharinha {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.sharinha:hover {
+    background-color: var(--primary-dark);
+}
+
+@media (max-width: 480px) {
+    .serido {
+        grid-template-columns: 1fr;
+    }
+
+    .prontinho {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
