@@ -33,24 +33,110 @@
      <main class="container">
         <form id="cuscuzform">
 
-            <section class="calabresa">
-                <h3 class="tomate">1. Escolha a sua Massa (obrigatório)</h3>
-                <div class="coentro">
-                    <label class="ovo">
-                        <div class="codorna">
-                          <span class="queijo"><input type="radio" name="massa" value="6.00" data-name="Massa Tradicional" required checked> Tradicional</span>
-                          <span class="mussarela">R$ 6,00</span>
+            <section class="cafe">
+                <h3 class="bangu">1. Escolha a sua Massa (obrigatório)</h3>
+                <div class="serido">
+                    <label class="coracoes">
+                        <div class="tres">
+                          <span class="leite"><input type="radio" name="massa" value="6.00" data-name="Massa Tradicional" required checked> Tradicional</span>
+                          <span class="amargo">R$ 6,00</span>
                         </div>
                     </label>
-                    <label class="ovo">
-                        <div class="codorna">
-                            <span class="queijo"><input type="radio" name="massa" value="7.00" data-name="Massa de Leite"> Temperada no Leite</span>
-                            <span class="mussarela">R$ 7,00</span>
+                    <label class="coracoes">
+                        <div class="tres">
+                            <span class="leite"><input type="radio" name="massa" value="7.00" data-name="Massa de Leite"> Temperada no Leite</span>
+                            <span class="amargo">R$ 7,00</span>
                         </div>
                     </label>
                 </div>
             </section>
+
+            <section class="cafe">
+                <h3 class="bangu">2. Escolha os recheios</h3>
+                <div class="serido">
+                    <label class="coracoes">
+                        <div class="tres">
+                            <span class="leite"><input type="checkbox" name="recheio" value="5.00" data-name="Carne de Sol Desfiada">Carne de Sol Desfiada</span>
+                            <span class="amargo">+ R$5,00</span>
+                        </div>
+                        </label>
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="recheio" value="4.00" data-name="Frango Desfiado">Frango Desfiada</span>
+                                <span class="amargo">+ R$4,00</span>
+                            </div>
+                        </label>
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="recheio" value="4.50" data-name="Queijo Coalho Assado">Queijo Coalho Assado</span>
+                                <span class="amargo">+ R$4,50</span>
+                            </div>
+                        </label>
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="recheio" value="3.50" data-name="Calabresa acebolada">Calabresa Acebolada</span>
+                                <span class="amargo">+ R$3,50</span>
+                            </div>
+                        </label>
+                    </div>
+               </section>
+
+               <section class="cafe">
+                <h3 class="bangu">3. Escolha as Coberturas</h3>
+                <div class="serido">
+                    <label class="coracoes">
+                        <div class="tres">
+                            <span class="leite"><input type="checkbox" name="coberturas" value="2.50" data-name="Requeijao Cremoso">Requeijão Cremoso</span>
+                            <span class="amargo">+ R$2,50</span>
+                        </div>
+                    </label>
+                    <label class="coracoes">
+                        <div class="tres">
+                            <span class="leite"><input type="checkbox" name="coberturas" value="2.00" data-name="Manteiga">Extra Manteiga de Garrafa</span>
+                            <span class="amargo">+R$2,00</span>
+                        </div>
+                    </label>
+                    <label class="coracoes">
+                        <div class="tres">
+                            <span class="leite"><input type="checkbox" name="coberturas" value="3.00" data-name="Molho">Molho de Queijo da Casa</span>
+                            <span class="amargo">+R$3,00</span>
+                        </div>
+                    </label>
+                </div>
+               </section>
+
+               <section class="cafe">
+                <h3 class="bangu">4. Escolha os Acompanhamentos</h3>
+                    <div class="serido">
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="acompanhamentos" value="2.00" data-name="OvoFrito">Ovo Frito</span>
+                                <span class="amargo">+R$2,00</span>
+                            </div>
+                        </label>
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="acompanhamentos" value="3.00" data-name="BananaDaTerra">Banana Da Terra</span>
+                                <span class="amargo">+ R$3,00</span>
+                            </div>
+                        </label>
+                        <label class="coracoes">
+                            <div class="tres">
+                                <span class="leite"><input type="checkbox" name="acompanhamentos" value="5.00" data-name="cafecoado">Café Passado na Hora</span>
+                                <span class="amargo">+ R$5,00</span>
+                            </div>
+                        </label>
+                    </div>
+               </section>
+
+               <div class="quentinho">
+                <div class="prontinho">
+                    Total: R$ <span id="totalvalue">6,00</span>
+                </div>
+                <button type="submit" class="sharinha"> Fazer Pedido</button>
+               </div>
         </form>
      </main>
+     <script src="demais.js"></script>
 </body>
 </html>
