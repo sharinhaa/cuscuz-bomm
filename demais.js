@@ -12,4 +12,13 @@ document.addEventListener('DOMContentLoaded', () =>) {
 
       totalDisplay.textContent = total.toFixed(2).replace('.', '.');
     }
-}
+
+
+form.addEventListener('change', CalculeTotal);
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  alert('Pedido realizado com sucesso! \nValor Total: R$ ${totalDisplay.textContent');
+});
+
+CalculeTotal();
+};
