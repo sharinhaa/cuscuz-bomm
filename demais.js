@@ -1,24 +1,55 @@
-document.addEventListener('DOMContentLoaded', () =>) {
-    const form = document.getElementById('cusuczForm');
-    const totalDisplay = document.getElementById('totalValue');
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("cusuczForm");
+    const totalDisplay = document.getElementById("totalValue");
+
+    if (!form || !totalDisplay) {
+      console.error("Elementos necessários não foram encontrados.");
+      return;
+    }
+
+    function formatarMoeda(valor) {
+      return valor.toLocalString("pt-BR", {
+        minimumFractionDigits:2,
+        maximumFractionDigits:2
+      });
+    }
 
     function CalculeTotal() {
-        let total = 0;
+     const selectedOptions = form.querySelectorAll('input[type="redio"]:checked, input[type="checkbox"]:checked');
 
-     const selectedOptions = form.querySelectorAll('input: checked');
-      selectedOptions.forEach(option => {
-        total += parseFloat(option.value);
-      });
+     const total = Array.from(selectedOptions).reduce((soma, option) => {
+      return soma + Number.parseFloat(option.value);
+     }, 0);
+      totalDisplay.textContent = formatarMoeda(total);
 
-      totalDisplay.textContent = total.toFixed(2).replace('.', '.');
+      return total;
     }
 
 
 form.addEventListener('change', CalculeTotal);
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  alert('Pedido realizado com sucesso! \nValor Total: R$ ${totalDisplay.textContent');
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  if(!from.checkValidity()) {
+    form.reportValidity();
+    return;
+  }
+  
+  const total = CalculeTotal();
+
+  const itens = Array.from(
+    form.querySelectorAll(
+      'input[type="radio"]:checked, input[type="checkbox"]:checked'
+    )
+  ).map((item) => item.dataset.name);
+
+  alert(
+    'Pedido realizado com sucesso!\n\n' +
+    'Itens: $[itens.join(",")}\n' +
+    'Valor total: R$ ${formatarMoeda(total)}'
+  );
 });
 
 CalculeTotal();
-};
+});

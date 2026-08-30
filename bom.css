@@ -5,30 +5,44 @@
   --bg: #fef3c7;           /* Creme suave */
   --card-bg: #ffffff;
   --text: #292524;
+  --muted:#78716c;
   --border: #e7e5e4;
-  --radius: 12px;
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(120, 53, 15, 0.1);
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: var(--bg)
-    color(var(--text));
-    line-height: 1.6;
-    padding-bottom: 100px;
+   min-height: 100vh;
+   background: var(--bg);
+   color: var(--text);
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 1.6;
+   padding-bottom: 110px;
+}
+
+button, input {
+    font: inherit;
 }
 
 .header {
-    background-color: var(--secondary);
-    color: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+   background: linear-gradient(135deg,
+   var(--secondary),
+   var(--secondary-dark)
+   );
+   color: #ffffff;
+   text-align: center;
+   padding: 2rem 1rem;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 .logotipo {
@@ -39,24 +53,23 @@ body {
 }
 
 .Logo-svg {
-    width: 80px;
-    height: 80px;
-    fill: #fef3c7;
+    width: 82px;
+    height: 82px;
 }
 
 .header h1 {
-    font-size: 2rem;
-    letter-spacing: 1px;
+    font-size: clamp(1.7rem, 5vw, 2.4rem);
+    letter-spacing: 0.5px;
 }
 
 .header p {
     font-size: 1rem;
-    opacity: 0.9;
+    color: #ffedd5;
 }
 
 .instrucoes {
     max-width: 800px;
-    margin: 2rem auto 1rem;
+    margin: 2rem auto 1.5rem;
     padding: 0 1rem;
     text-align: center;
 }
@@ -64,20 +77,28 @@ body {
 .instrucoes h2 {
     color: var(--secondary);
     margin-bottom: 0.5rem;
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
 }
 
-.container {
-    max-width: 880x;
+.instrucoes p {
+    color: #57534e;
+}
+
+.container{
     margin: 0 auto;
-    padding: 0 1rem;
+    width: min(100% - 2rem, 880px);
 }
 
 .cafe {
-    font-size: 1.25rem;
-    color: var(--primary-dark);
-    margin-bottom: 1rem;
-    border-bottom: 2px solid var(--bg);
-    padding-bottom: 0.5rem;
+   margin-bottom: 1.75rem;
+}
+
+.cafe h3 {
+   margin-bottom: 0.9rem;
+   padding-bottom: 0.55rem;
+   border-bottom: 2px solid rgba(217, 119, 6, 0.35);
+   color: var(--primary-dark);
+   font-size: 1.2rem;
 }
 
 .serido {
@@ -87,37 +108,57 @@ body {
 }
 
 .coracoes {
-    border: 2px solid var(--border);
-    border-radius: 8px;
-    padding: 1rem;
+    position: relative;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    min-height: 82px;
+    padding: 1rem;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
     cursor: pointer;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(41, 37, 36, 0.04);
+    transition:
+       border-color 0.2s ease,
+       box-shadow 0.2s ease,
+       transform 0.2s ease;
 }
 
 .coracoes:hover {
     border-color: var(--primary);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+}
+
+.coracoes:has(input:checked) {
+    border-color: var(--primary);
+    background: #fff7ed;
+    box-shadow: 0 0 0 3px rgba(217, 19, 6, 0.14);
 }
 
 .coracoes input {
-    margin-right: 0.5rem;
+    width: 18px;
+    height: 18px;
+    margin-right: 0.65rem;
     accent-color: var(--primary);
+    cursor: pointer;
 }
 
 .tres {
     display: flex;
     flex-direction: column;
+    gap: 0.2rem;
 }
 
 .leite {
     font-weight: 600;
+    display: flex;
+    align-items: center;
 }
 
 .amargo {
-    font-size: 0.875rem;
-    color: #666;
+    font-size: 0.9rem;
+    color: var(--muted);
 }
 
 .quentinho {
@@ -125,46 +166,90 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.96);
     border-top: 2px solid var(--border);
-    padding: 1rem;
-    box-shadow: o -4px 10px rgba(0,0,0,0.1);
+    padding: 1rem max(1rem, calc((110% - 880px) /2));
+    box-shadow: 0 -4px 14px rgba(0,0,0,0.1);
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 1rem;
     align-items: center;
     max-width: 100%;
     z-index: 100;
+    backdrop-filter: blur(8px);
 }
 
 .prontinho {
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 700;
     color: var(--secondary);
+    white-space: nowrap;
 }
 
 .sharinha {
-    background-color: var(--primary);
-    color: white;
+    background: var(--primary);
+    color: #ffffff;
     border: none;
-    padding: 0.75rem 1.5rem;
+    padding: 0.8rem 1.5rem;
     font-size: 1rem;
-    font-weight: bold;
-    border-radius: 6px;
+    font-weight: 700;
+    border-radius: 9px;
     cursor: pointer;
-    transition: background 0.2s;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
 }
 
 .sharinha:hover {
-    background-color: var(--primary-dark);
+    background: var(--primary-dark);
+    transform: 0.2s ease;
 }
 
-@media (max-width: 480px) {
+.sharinha:active {
+    transform: translateY(0);
+}
+
+.sharinha:focus-visible,
+.coracoes:has(input:focus-visible) {
+    outline: 3px solid rgba(217, 119, 6, 0.45);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
     .serido {
         grid-template-columns: 1fr;
     }
 
     .prontinho {
+        text-align: center;
+        font-size: 1.15rem;
+    }
+
+    body {
+        padding-bottom: 145px;
+    }
+
+    .container {
+        width: min(100% - 1.25rem, 880px);
+    }
+
+    .quentinho {
         flex-direction: column;
-        gap: 0.5rem;
+        align-items: stretch;
+        gap: 0.7rem;
+        padding: 0.85rem 1rem;
+    }
+
+    .sharinha {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
     }
 }
