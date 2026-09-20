@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("cusuczForm");
-    const totalDisplay = document.getElementById("totalValue");
+    const form = document.getElementById("cuscuzform");
+    const totalDisplay = document.getElementById("totalvalue");
 
     if (!form || !totalDisplay) {
       console.error("Elementos necessários não foram encontrados.");
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function formatarMoeda(valor) {
-      return valor.toLocalString("pt-BR", {
+      return valor.toLocaleString("pt-BR", {
         minimumFractionDigits:2,
         maximumFractionDigits:2
       });
@@ -31,7 +31,7 @@ form.addEventListener('change', CalculeTotal);
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  if(!from.checkValidity()) {
+  if(!form.checkValidity()) {
     form.reportValidity();
     return;
   }
@@ -46,7 +46,7 @@ form.addEventListener('submit', (event) => {
 
   alert(
     'Pedido realizado com sucesso!\n\n' +
-    'Itens: $[itens.join(",")}\n' +
+    'Itens: ${itens.join(",")}\n' +
     'Valor total: R$ ${formatarMoeda(total)}'
   );
 });
